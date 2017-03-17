@@ -19,4 +19,8 @@ echo "compile ip address test"
 cd /home/pi/robot3/src/test_units/net/
 ./compile.sh
 
+echo "compile servo test"
+cd /home/pi/robot3/src/servo/
+./compile.sh
+
 echo "ready"
