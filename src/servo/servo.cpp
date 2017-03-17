@@ -5,15 +5,17 @@
  *      Author: Wladimir David Zakrevskyy
  */
 
-#include "gpio_servo.h"
-#include "servo.h"
-
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
 
 #include "../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../lib/WiringPi/wiringPi/softServo.h"
+
+#include "gpio_servo.h"
+#include "servo.h"
+
+using namespace std;
 
 int main() {
 	if (wiringPiSetup() == -1) {
