@@ -34,13 +34,21 @@ int main() {
 
 	int value = 20;
 	int value2 = 9;
-	int dly = 20;	
+	int dly = 20;
 
 	int stop = 0;
-	
-	while(true){
+
+	system("kill $(pidof python)");
+	system("python /home/pi/Pimoroni/scrollphat/examples/life.py");
+
+	while (true) {
+
+		system("kill $(pidof python)");
+		system(
+				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py >>>>>>");
+
 		fprintf(stdout, "init: %d\n", 0);
-		for (int var = 0; var < (value/2); ++var) {
+		for (int var = 0; var < (value / 2); ++var) {
 			//fprintf(stdout, "->: %d\n", var);
 			softPwmWrite(SERVO_1, var);
 			softPwmWrite(SERVO_2, value2);
@@ -50,14 +58,17 @@ int main() {
 		fprintf(stdout, "middle: %d\n", 0);
 		delay(2000);
 		for (int var = stop; var <= value; ++var) {
-                        //fprintf(stdout, "->: %d\n", var);
-                        softPwmWrite(SERVO_1, var);
-                        softPwmWrite(SERVO_2, value2);
-                        delay(dly);
-                        stop = var;
-                }
+			//fprintf(stdout, "->: %d\n", var);
+			softPwmWrite(SERVO_1, var);
+			softPwmWrite(SERVO_2, value2);
+			delay(dly);
+			stop = var;
+		}
+		system("kill $(pidof python)");
+		system(
+				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py <<<<<<");
 		fprintf(stdout, "back: %d\n", 0);
-		for (int var = value; var > (value/2); --var) {
+		for (int var = value; var > (value / 2); --var) {
 			//fprintf(stdout, "<-: %d\n", var);
 			softPwmWrite(SERVO_1, var);
 			softPwmWrite(SERVO_2, value2);
@@ -65,13 +76,13 @@ int main() {
 			stop = var;
 		}
 		fprintf(stdout, "middle: %d\n", 0);
-                delay(2000);
+		delay(2000);
 		for (int var = stop; var >= value; --var) {
-                        //fprintf(stdout, "<-: %d\n", var);
-                        softPwmWrite(SERVO_1, var);
-                        softPwmWrite(SERVO_2, value2);
-                        delay(dly);
-                        stop = var;
-                }
+			//fprintf(stdout, "<-: %d\n", var);
+			softPwmWrite(SERVO_1, var);
+			softPwmWrite(SERVO_2, value2);
+			delay(dly);
+			stop = var;
+		}
 	}
 }
