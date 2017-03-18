@@ -42,7 +42,7 @@ int main() {
 
 	int stop = 0;
 
-	scrollPhatPuts("test");
+	scrollPhatPutchar('X');
 
 //	system("kill $(pidof python)");
 //	system("python /home/pi/Pimoroni/scrollphat/examples/life.py &");
