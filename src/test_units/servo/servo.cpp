@@ -23,7 +23,12 @@ using namespace std;
 
 int main() {
 	if (wiringPiSetup() == -1) {
-		fprintf(stdout, "oops: %s\n", strerror(errno));
+		fprintf(stdout, "wiringPi error: %s\n", strerror(errno));
+		return 1;
+	}
+
+	if (scrollPhatSetup() == -1) {
+		fprintf(stdout, "scroll phat: %s\n", strerror(errno));
 		return 1;
 	}
 
