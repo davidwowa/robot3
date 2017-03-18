@@ -9,7 +9,7 @@
 #define SERVO_GPIO_SERVO_H_
 
 // servo pins
-extern const int SERVO_1 = 26;
-extern const int SERVO_2 = 27;
+extern const int SERVO_1 = 2;
+extern const int SERVO_2 = 3;
 
 #endif /* SERVO_GPIO_SERVO_H_ */

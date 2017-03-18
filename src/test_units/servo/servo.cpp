@@ -9,8 +9,8 @@
 #include <errno.h>
 #include <string.h>
 
-#include "../../lib/WiringPi/wiringPi/wiringPi.h"
-#include "../../lib/WiringPi/wiringPi/softPwm.h"
+#include "../../../lib/WiringPi/wiringPi/wiringPi.h"
+#include "../../../lib/WiringPi/wiringPi/softPwm.h"
 
 #include "gpio_servo.h"
 #include "servo.h"
