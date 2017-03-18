@@ -40,6 +40,6 @@ int main() {
 		fprintf(stdout, "servo: %d\n", count);
 		softPwmWrite(SERVO_1, count);
 		softPwmWrite(SERVO_2, count);
-		count = count++;
+		count++;
 	}
 }
