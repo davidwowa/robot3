@@ -40,7 +40,7 @@ int main() {
 
 	int stop = 0;
 
-	system("kill $(pidof python)");
+//	system("kill $(pidof python)");
 	system("python /home/pi/Pimoroni/scrollphat/examples/life.py");
 
 	while (true) {
