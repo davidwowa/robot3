@@ -41,13 +41,13 @@ int main() {
 	int stop = 0;
 
 //	system("kill $(pidof python)");
-	system("python /home/pi/Pimoroni/scrollphat/examples/life.py");
+	system("python /home/pi/Pimoroni/scrollphat/examples/life.py &");
 
 	while (true) {
 
-		system("kill $(pidof python)");
+		system("kill $(pidof python) &");
 		system(
-				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py >>>>>>");
+				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py >>>>>> &");
 
 		fprintf(stdout, "init: %d\n", 0);
 		for (int var = 0; var < (value / 2); ++var) {
@@ -66,9 +66,9 @@ int main() {
 			delay(dly);
 			stop = var;
 		}
-		system("kill $(pidof python)");
+		system("kill $(pidof python) &");
 		system(
-				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py <<<<<<");
+				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py <<<<<< &");
 		fprintf(stdout, "back: %d\n", 0);
 		for (int var = value; var > (value / 2); --var) {
 			//fprintf(stdout, "<-: %d\n", var);
