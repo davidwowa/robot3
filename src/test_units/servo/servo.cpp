@@ -32,15 +32,19 @@ int main() {
 	softPwmCreate(SERVO_1, 0, 200);
 	softPwmCreate(SERVO_2, 0, 200);
 
-	softPwmWrite(SERVO_1, 0);
-	softPwmWrite(SERVO_2, 0);
+	int value = 15;
 
-	int count = 0;
-	while (count <= 199) {
-		fprintf(stdout, "servo: %d\n", count);
-		softPwmWrite(SERVO_1, count);
-		softPwmWrite(SERVO_2, count);
-		delay(10);
-		count++;
+	for (int var = 0; var < value; ++var) {
+		fprintf(stdout, "->: %d\n", var);
+		softPwmWrite(SERVO_1, var);
+		softPwmWrite(SERVO_2, var);
+		delay(100);
+
+	}
+	for (int var = value; var > 0; --var) {
+		fprintf(stdout, "<-: %d\n", var);
+		softPwmWrite(SERVO_1, var);
+		softPwmWrite(SERVO_2, var);
+		delay(100);
 	}
 }

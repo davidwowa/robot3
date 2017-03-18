@@ -20,7 +20,7 @@ cd /home/pi/robot3/src/test_units/net/
 ./compile.sh
 
 echo "compile servo test"
-cd /home/pi/robot3/src/servo/
+cd /home/pi/robot3/src/test_units/servo/
 ./compile.sh
 
 echo "ready"
