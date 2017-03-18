@@ -32,19 +32,46 @@ int main() {
 	softPwmCreate(SERVO_1, 0, 200);
 	softPwmCreate(SERVO_2, 0, 200);
 
-	int value = 15;
+	int value = 20;
+	int value2 = 9;
+	int dly = 20;	
 
-	for (int var = 0; var < value; ++var) {
-		fprintf(stdout, "->: %d\n", var);
-		softPwmWrite(SERVO_1, var);
-		softPwmWrite(SERVO_2, var);
-		delay(100);
-
-	}
-	for (int var = value; var > 0; --var) {
-		fprintf(stdout, "<-: %d\n", var);
-		softPwmWrite(SERVO_1, var);
-		softPwmWrite(SERVO_2, var);
-		delay(100);
+	int stop = 0;
+	
+	while(true){
+		fprintf(stdout, "init: %d\n", 0);
+		for (int var = 0; var < (value/2); ++var) {
+			//fprintf(stdout, "->: %d\n", var);
+			softPwmWrite(SERVO_1, var);
+			softPwmWrite(SERVO_2, value2);
+			delay(dly);
+			stop = var;
+		}
+		fprintf(stdout, "middle: %d\n", 0);
+		delay(2000);
+		for (int var = stop; var <= value; ++var) {
+                        //fprintf(stdout, "->: %d\n", var);
+                        softPwmWrite(SERVO_1, var);
+                        softPwmWrite(SERVO_2, value2);
+                        delay(dly);
+                        stop = var;
+                }
+		fprintf(stdout, "back: %d\n", 0);
+		for (int var = value; var > (value/2); --var) {
+			//fprintf(stdout, "<-: %d\n", var);
+			softPwmWrite(SERVO_1, var);
+			softPwmWrite(SERVO_2, value2);
+			delay(dly);
+			stop = var;
+		}
+		fprintf(stdout, "middle: %d\n", 0);
+                delay(2000);
+		for (int var = stop; var >= value; --var) {
+                        //fprintf(stdout, "<-: %d\n", var);
+                        softPwmWrite(SERVO_1, var);
+                        softPwmWrite(SERVO_2, value2);
+                        delay(dly);
+                        stop = var;
+                }
 	}
 }
