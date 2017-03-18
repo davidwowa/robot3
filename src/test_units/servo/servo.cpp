@@ -42,9 +42,7 @@ int main() {
 
 	int stop = 0;
 
-	char ch = 'X';
-
-	scrollPhatPutchar(ch);
+	scrollPhatPoint(1, 1, 1);
 
 //	system("kill $(pidof python)");
 //	system("python /home/pi/Pimoroni/scrollphat/examples/life.py &");
