@@ -32,10 +32,13 @@ int main() {
 	softPwmCreate(SERVO_1, 0, 200);
 	softPwmCreate(SERVO_2, 0, 200);
 
+	softPwmWrite(SERVO_1, 0);
+	softPwmWrite(SERVO_1, 0);
+
 	int count = 0;
-	while (count <= 10) {
-		softPwmWrite(SERVO_1, 180);
-		softPwmWrite(SERVO_1, 20);
+	while (count <= 199) {
+		softPwmWrite(SERVO_1, count);
+		softPwmWrite(SERVO_1, count);
 		count = count++;
 	}
 }
