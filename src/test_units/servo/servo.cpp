@@ -11,12 +11,8 @@
 
 #include <stdlib.h>
 
-#include <deviceHeader.h>
-
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/WiringPi/wiringPi/softPwm.h"
-
-#include "../../../lib/WiringPi/devLib/scrollPhat.h"
 
 #include "gpio_servo.h"
 #include "servo.h"
@@ -48,8 +44,6 @@ int main() {
 	int dly = 20;
 
 	int stop = 0;
-
-	scrollPhatPoint(1, 1, 1);
 
 //	system("kill $(pidof python)");
 //	system("python /home/pi/Pimoroni/scrollphat/examples/life.py &");

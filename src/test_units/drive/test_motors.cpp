@@ -21,14 +21,14 @@ int main(void) {
 
 	// acceleration forward
 	cout << "acceleration forward" << endl;
-	for (int var = 0; var < 200; ++var) {
+	for (int var = 0; var < 500; ++var) {
 		cout << "set speed to " << var << endl;
 		drive_forward(var);
 		delay(10);
 	}
 	// acceleration backward
 	cout << "acceleration backward" << endl;
-	for (int var = 0; var < 200; ++var) {
+	for (int var = 0; var < 500; ++var) {
 		cout << "set speed to " << var << endl;
 		drive_backward(var);
 		delay(10);
