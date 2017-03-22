@@ -25,11 +25,6 @@ int main() {
 		return 1;
 	}
 
-	if (scrollPhatSetup() == -1) {
-		fprintf(stdout, "scroll phat: %s\n", strerror(errno));
-		return 1;
-	}
-
 	pinMode(SERVO_1, OUTPUT);
 	pinMode(SERVO_2, OUTPUT);
 
