@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "test display"
-sudo /home/pi/robot2/src/test_units/display/display_test
+sudo kill $(pidof python)
+python /home/pi/Pimoroni/scrollphat/examples/life.py
