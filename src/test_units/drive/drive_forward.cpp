@@ -13,12 +13,15 @@
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/WiringPi/wiringPi/softPwm.h"
 
+#include <stdio.h>
+
 int main(void) {
 
 	init_drive();
 
-	drive_forward();
-	drive_forward();
+	printf("drive forward");
+
+	drive_forward(499);
 
 	return 1;
 }

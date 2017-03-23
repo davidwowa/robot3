@@ -13,12 +13,15 @@
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/WiringPi/wiringPi/softPwm.h"
 
+#include <stdio.h>
+
 int main(void) {
 
 	init_drive();
 
-	turn_left();
-	turn_left();
+	printf("turn left");
+
+	turn_left(499);
 
 	return 1;
 }
