@@ -16,6 +16,8 @@ echo "kill test_motors"
 sudo kill $(pidof test_motors)
 echo "kill test_motors_2"
 sudo kill $(pidof test_motors_2)
+echo "kill test_motors_2"
+sudo kill $(pidof python)
 
 echo "stop driving"
 sudo /home/pi/robot3/src/test_units/drive/stop
