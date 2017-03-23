@@ -43,8 +43,10 @@ int main() {
 //	system("kill $(pidof python)");
 //	system("python /home/pi/Pimoroni/scrollphat/examples/life.py &");
 
-	while (true) {
+	int i = 4;
+	int counter = 0;
 
+	while (counter <= i) {
 //		system("kill $(pidof python) &");
 //		system(
 //				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py >>>>>> &");
@@ -86,5 +88,6 @@ int main() {
 			delay(dly);
 			stop = var;
 		}
+		counter++;
 	}
 }
