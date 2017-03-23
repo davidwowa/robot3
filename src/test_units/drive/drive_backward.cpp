@@ -17,7 +17,7 @@ int main(void) {
 
 	init_drive();
 
-	drive_backward(199);
+	drive_backward(499);
 
 	return 1;
 }
