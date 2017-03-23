@@ -6,22 +6,21 @@
 // Description :
 //============================================================================
 
-#include "../../drive/drive.h"
+#include "iostream"
 
-#include "../../sonar/sonar.h"
+#include "../../drive/drive.h"
 
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/WiringPi/wiringPi/softPwm.h"
 
-#include <stdio.h>
+using namespace std;
 
 int main(void) {
 
 	init_drive();
 
-	printf("turn right");
-
-	turn_right(499);
+	cout << "turn right" << endl;
+	turn_right();
 
 	return 1;
 }
