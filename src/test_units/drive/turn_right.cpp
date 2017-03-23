@@ -17,7 +17,7 @@ int main(void) {
 
 	init_drive();
 
-	turn_right(499);
+	turn_right();
 
 	return 1;
 }
