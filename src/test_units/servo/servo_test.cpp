@@ -41,11 +41,16 @@ int main(int argc, char* argv[]) {
 
 	int stop = 0;
 
+	int a = (int) argv[0];
+	int b = (int) argv[1];
+	cout << a << endl;
+	cout << b << endl;
+
 	system("kill $(pidof python)");
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_1&");
 
-	for (int var = 0; var < (int) argv[0]; ++var) {
+	for (int var = 0; var < a; ++var) {
 		softPwmWrite(SERVO_1, var);
 		delay(dly);
 	}
@@ -54,7 +59,7 @@ int main(int argc, char* argv[]) {
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_2&");
 
-	for (int var = 0; var < (int) argv[1]; ++var) {
+	for (int var = 0; var < b; ++var) {
 		softPwmWrite(SERVO_2, var);
 		delay(dly);
 	}
