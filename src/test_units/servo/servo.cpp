@@ -31,8 +31,8 @@ int main() {
 	digitalWrite(SERVO_1, LOW);
 	digitalWrite(SERVO_2, LOW);
 
-	softPwmCreate(SERVO_1, 0, 200);
-	softPwmCreate(SERVO_2, 0, 200);
+	softPwmCreate(SERVO_1, 0, 400);
+	softPwmCreate(SERVO_2, 0, 400);
 
 	int value = 20;
 	int value2 = 9;
@@ -40,16 +40,16 @@ int main() {
 
 	int stop = 0;
 
-//	system("kill $(pidof python)");
-//	system("python /home/pi/Pimoroni/scrollphat/examples/life.py &");
+	system("kill $(pidof python)");
+	system("python /home/pi/Pimoroni/scrollphat/examples/life.py &");
 
 	int i = 4;
 	int counter = 0;
 
 	while (counter <= i) {
-//		system("kill $(pidof python) &");
-//		system(
-//				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py >>>>>> &");
+		system("kill $(pidof python)");
+		system(
+				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py \">>>>>>>>>\" &");
 
 		fprintf(stdout, "init: %d\n", 0);
 		for (int var = 0; var < (value / 2); ++var) {
@@ -68,9 +68,9 @@ int main() {
 			delay(dly);
 			stop = var;
 		}
-//		system("kill $(pidof python) &");
-//		system(
-//				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py <<<<<< &");
+		system("kill $(pidof python)");
+		system(
+				"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py \"<<<<<<<<<\" &");
 		fprintf(stdout, "back: %d\n", 0);
 		for (int var = value; var > (value / 2); --var) {
 			//fprintf(stdout, "<-: %d\n", var);
