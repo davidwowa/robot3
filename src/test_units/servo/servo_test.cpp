@@ -47,6 +47,7 @@ int main(int argc, char* argv[]) {
 
 	for (int var = 0; var < (int) argv[0]; ++var) {
 		softPwmWrite(SERVO_1, var);
+		delay(dly);
 	}
 
 	system("kill $(pidof python)");
@@ -55,5 +56,6 @@ int main(int argc, char* argv[]) {
 
 	for (int var = 0; var < (int) argv[1]; ++var) {
 		softPwmWrite(SERVO_2, var);
+		delay(dly);
 	}
 }
