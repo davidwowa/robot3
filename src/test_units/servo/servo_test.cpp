@@ -41,8 +41,8 @@ int main(int argc, char* argv[]) {
 
 	int stop = 0;
 
-	int a = (int) argv[0];
-	int b = (int) argv[1];
+	int a = (int) &argv[0];
+	int b = (int) &argv[1];
 	cout << a << endl;
 	cout << b << endl;
 
