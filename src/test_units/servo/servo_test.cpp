@@ -43,8 +43,17 @@ int main(int argc, char* argv[]) {
 
 	system("kill $(pidof python)");
 	system(
-			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST &");
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST 1&");
 
-	softPwmWrite(SERVO_1, (int) argv[0]);
-	softPwmWrite(SERVO_2, (int) argv[1]);
+	for (int var = 0; var < (int) argv[0]; ++var) {
+		softPwmWrite(SERVO_1, var);
+	}
+
+	system("kill $(pidof python)");
+	system(
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST 2&");
+
+	for (int var = 0; var < (int) argv[1]; ++var) {
+		softPwmWrite(SERVO_2, var);
+	}
 }
