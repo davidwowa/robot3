@@ -8,7 +8,9 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+
 #include <iostream>
+#include <string>
 
 #include <stdlib.h>
 
@@ -41,26 +43,32 @@ int main(int argc, char* argv[]) {
 
 	int stop = 0;
 
-	int a = (int) &argv[0];
-	int b = (int) &argv[1];
+	std::string a = argv[1];
+	std::string b = argv[2];
 	cout << a << endl;
 	cout << b << endl;
+	cout << argc << endl;	
+
+	int x = std::stoi(a);
+	int y = std::stoi(b);
+	cout << x << endl;
+        cout << y << endl;
 
 	system("kill $(pidof python)");
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_1&");
 
-	for (int var = 0; var < a; ++var) {
-		softPwmWrite(SERVO_1, var);
+	//for (int var = 0; var < x; ++var) {
+		softPwmWrite(SERVO_1, x);
 		delay(dly);
-	}
+	//}
 
 	system("kill $(pidof python)");
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_2&");
 
-	for (int var = 0; var < b; ++var) {
-		softPwmWrite(SERVO_2, var);
+	//for (int var = 0; var < y; ++var) {
+		softPwmWrite(SERVO_2, y);
 		delay(dly);
-	}
+	//}
 }
