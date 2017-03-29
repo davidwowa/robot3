@@ -34,41 +34,52 @@ int main(int argc, char* argv[]) {
 	digitalWrite(SERVO_1, LOW);
 	digitalWrite(SERVO_2, LOW);
 
-	softPwmCreate(SERVO_1, 0, 400);
-	softPwmCreate(SERVO_2, 0, 400);
+	softPwmCreate(SERVO_1, 0, 200);
+	softPwmCreate(SERVO_2, 0, 200);
 
-	int value = 20;
-	int value2 = 9;
-	int dly = 20;
-
-	int stop = 0;
+	int dly = 15;
 
 	std::string a = argv[1];
 	std::string b = argv[2];
-	cout << a << endl;
-	cout << b << endl;
-	cout << argc << endl;	
 
 	int x = std::stoi(a);
 	int y = std::stoi(b);
 	cout << x << endl;
-        cout << y << endl;
+	cout << y << endl;
 
 	system("kill $(pidof python)");
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_1&");
 
-	//for (int var = 0; var < x; ++var) {
-		softPwmWrite(SERVO_1, x);
-		delay(dly);
-	//}
+	if (x >= 0) {
+		for (int var = 0; var < x; ++var) {
+			softPwmWrite(SERVO_1, HIGH);
+			delay(dly);
+		}
+		softPwmWrite(SERVO_1, LOW);
+	} else {
+		for (int var = 0; var < (x * (-1)); --var) {
+			softPwmWrite(SERVO_1, HIGH);
+			delay(dly);
+		}
+		softPwmWrite(SERVO_1, LOW);
+	}
 
 	system("kill $(pidof python)");
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_2&");
 
-	//for (int var = 0; var < y; ++var) {
-		softPwmWrite(SERVO_2, y);
-		delay(dly);
-	//}
+	if (y >= 0) {
+		for (int var = 0; var < y; ++var) {
+			softPwmWrite(SERVO_2, HIGH);
+			delay(dly);
+		}
+		softPwmWrite(SERVO_2, LOW);
+	} else {
+		for (int var = 0; var < (y * (-1)); --var) {
+			softPwmWrite(SERVO_2, HIGH);
+			delay(dly);
+		}
+		softPwmWrite(SERVO_2, LOW);
+	}
 }
