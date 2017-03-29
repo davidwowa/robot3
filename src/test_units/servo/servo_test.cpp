@@ -51,18 +51,21 @@ int main(int argc, char* argv[]) {
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_1&");
 
+	// 11-center, 14-left, 8-right
+	// 0-up, 9-center, 13-down 
+
 	if (x >= 0) {
 		for (int var = 0; var < x; ++var) {
-			softPwmWrite(SERVO_1, HIGH);
+			softPwmWrite(SERVO_1, x);
 			delay(dly);
 		}
-		softPwmWrite(SERVO_1, LOW);
+		//softPwmWrite(SERVO_1, LOW);
 	} else {
 		for (int var = (x * (-1)); var > 0; --var) {
-			softPwmWrite(SERVO_1, HIGH);
+			softPwmWrite(SERVO_1,  (x * (-1)));
 			delay(dly);
 		}
-		softPwmWrite(SERVO_1, LOW);
+		//softPwmWrite(SERVO_1, LOW);
 	}
 
 	system("kill $(pidof python)");
@@ -71,15 +74,15 @@ int main(int argc, char* argv[]) {
 
 	if (y >= 0) {
 		for (int var = 0; var < y; ++var) {
-			softPwmWrite(SERVO_2, HIGH);
+			softPwmWrite(SERVO_2, y);
 			delay(dly);
 		}
-		softPwmWrite(SERVO_2, LOW);
+		//softPwmWrite(SERVO_2, LOW);
 	} else {
 		for (int var = (y * (-1)); var > 0; --var) {
-			softPwmWrite(SERVO_2, HIGH);
+			softPwmWrite(SERVO_2, (y * (-1)));
 			delay(dly);
 		}
-		softPwmWrite(SERVO_2, LOW);
+		//softPwmWrite(SERVO_2, LOW);
 	}
 }
