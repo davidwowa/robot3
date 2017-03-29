@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
 		}
 		softPwmWrite(SERVO_1, LOW);
 	} else {
-		for (int var = 0; var < (x * (-1)); --var) {
+		for (int var = (x * (-1)); var > 0; --var) {
 			softPwmWrite(SERVO_1, HIGH);
 			delay(dly);
 		}
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]) {
 		}
 		softPwmWrite(SERVO_2, LOW);
 	} else {
-		for (int var = 0; var < (y * (-1)); --var) {
+		for (int var = (y * (-1)); var > 0; --var) {
 			softPwmWrite(SERVO_2, HIGH);
 			delay(dly);
 		}
