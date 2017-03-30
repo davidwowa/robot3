@@ -54,25 +54,26 @@ void run() {
 	if (distance_m <= MAX_WALL_DISTANCE_1) {
 		move_left();
 		int l = get_distance();
-		move_right();
-		int r = get_distance();
 		move_center_x();
 		int c = get_distance();
+		move_right();
+		int r = get_distance();
 
 		if (l < c && r < c) {
 			drive_backward(current_speed);
+			move_center_x();
 		} else {
 			if (l < r) {
 				turn_right(current_speed);
 			} else {
 				turn_left(current_speed);
 			}
-			drive_forward(current_speed);
+			move_center_x();
 		}
 	} else {
 		drive_forward(current_speed);
 	}
-//	delay(500);
+	delay(500);
 }
 
 int main(void) {

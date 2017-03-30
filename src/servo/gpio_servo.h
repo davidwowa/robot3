@@ -21,7 +21,7 @@ extern const int SERVO_DELAY = 15;
 
 // directions
 extern const int SERVO_LEFT = 15;
-extern const int SERVO_RIGHT = 4;
+extern const int SERVO_RIGHT = 8;
 extern const int SERVO_CENTER_X = 11;
 extern const int SERVO_UP = 0;
 extern const int SERVO_DOWN = 13;
