@@ -7,6 +7,10 @@
 //============================================================================
 #include <iostream>
 
+#include <stdio.h>
+#include <errno.h>
+#include <string.h>
+
 #include "../../drive/drive.h"
 
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
