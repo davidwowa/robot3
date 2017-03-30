@@ -7,6 +7,8 @@
 //============================================================================
 
 #include "../../drive/drive.h"
+#include "../../sonar/sonar.h"
+#include "../../servo/servo.h"
 
 #include "../../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../../lib/WiringPi/wiringPi/softPwm.h"

@@ -49,12 +49,29 @@ void run() {
 	cout << "Distance on middle sensor is " << distance_m << " cm." << endl;
 	cout << "---" << endl;
 
-	move_left();
-	move_right();
-	move_center_x();
-	move_up();
-	move_down();
-	move_center_y();
+	int current_speed = get_speed(distance_m);
+
+	if (distance_m <= MAX_WALL_DISTANCE_1) {
+		stop();
+		move_left();
+		int l = get_distance();
+		move_center_x();
+		int c = get_distance();
+		move_right();
+		int r = get_distance();
+
+		if (l < c && r < c) {
+			if (l < r) {
+				turn_right(current_speed);
+				move_center_x();
+			} else {
+				turn_left(current_speed);
+				move_center_x();
+			}
+		} else {
+			drive_forward(current_speed);
+		}
+	}
 }
 
 int main(void) {
