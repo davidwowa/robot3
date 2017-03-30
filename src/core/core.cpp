@@ -33,27 +33,33 @@ int is_running();
 int current_pointer = FORWARD;
 
 void init() {
+	system("sudo kill $(pidof python)");
+	system("python /home/pi/Pimoroni/scrollphat/examples/sine.py &");
+
 	init_drive();
 	init_sonar();
 	init_servo();
+	move_center_x();
+	move_center_y();
 }
 
 void run() {
-
 	int distance_m = get_distance();
 
 	cout << "Distance on middle sensor is " << distance_m << " cm." << endl;
 	cout << "---" << endl;
 
-	system("sudo kill $(pidof python)");
-	system(
-			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py CORE&");
-
+	move_left();
+	move_right();
+	move_center_x();
+	move_up();
+	move_down();
+	move_center_y();
 }
 
 int main(void) {
 	init();
-	for (int i = 100000; i > 0; i--) {
+	for (int i = 100; i > 0; i--) {
 		run();
 	}
 	exit(EXIT_SUCCESS);

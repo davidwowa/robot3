@@ -20,7 +20,7 @@ int main(void) {
 	init_drive();
 
 	cout << "turn right" << endl;
-	turn_right();
+	turn_right(0);
 
 	return 1;
 }

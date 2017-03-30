@@ -20,7 +20,7 @@ int main(void) {
 	init_drive();
 
 	cout << "drive backward" << endl;
-	drive_backward();
+	drive_backward(0);
 
 	return 1;
 }
