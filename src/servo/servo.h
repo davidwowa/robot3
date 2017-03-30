@@ -10,8 +10,8 @@
 
 extern void init_servo(void);
 
-extern void init_wiringPi(void);
-extern void init_PWM(void);
+extern void init_servo_wiringPi(void);
+extern void init_servo_PWM(void);
 
 extern void move_left(void);
 extern void move_right(void);

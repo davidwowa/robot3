@@ -19,7 +19,7 @@
 
 using namespace std;
 
-void init_wiringPi(void) {
+void init_servo_wiringPi(void) {
 	if (wiringPiSetup() == -1) {
 		fprintf(stdout, "wiringPi error: %s\n", strerror(errno));
 	}
@@ -30,14 +30,14 @@ void init_wiringPi(void) {
 	digitalWrite(SERVO_2, LOW);
 }
 
-void init_PWM(void) {
+void init_servo_PWM(void) {
 	softPwmCreate(SERVO_1, 0, 200);
 	softPwmCreate(SERVO_2, 0, 200);
 }
 
 void init_servo(void) {
-	init_wiringPi();
-	init_PWM();
+	init_servo_wiringPi();
+	init_servo_PWM();
 }
 
 void move_left(void) {

@@ -16,11 +16,11 @@
 using namespace std;
 
 void init_drive(void) {
-	init_wiringPi();
-	init_PWM();
+	init_drive_wiringPi();
+	init_drive_PWM();
 }
 
-void init_wiringPi(void) {
+void init_drive_wiringPi(void) {
 	cout << "init wiring pi" << endl;
 
 	if (wiringPiSetup() == -1) {
@@ -30,7 +30,7 @@ void init_wiringPi(void) {
 	}
 }
 
-void init_PWM(void) {
+void init_drive_PWM(void) {
 	cout << "prepare pwm gpio for motors" << endl;
 	// prepare GPIOs for motors
 	softPwmCreate(MOTOR_L_U, PWM_MIN, PWM_MAX);
