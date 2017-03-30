@@ -53,7 +53,7 @@ void run() {
 
 int main(void) {
 	init();
-	for (int i = 100000; i < 0; i--) {
+	for (int i = 100000; i > 0; i--) {
 		run();
 	}
 	exit(EXIT_SUCCESS);
