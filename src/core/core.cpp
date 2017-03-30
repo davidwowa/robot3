@@ -73,6 +73,8 @@ void run() {
 			}
 			drive_forward(current_speed);
 		}
+	} else {
+		drive_forward(current_speed);
 	}
 }
 
