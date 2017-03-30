@@ -52,36 +52,33 @@ void run() {
 	int current_speed = get_speed(distance_m);
 
 	if (distance_m <= MAX_WALL_DISTANCE_1) {
-		stop_motors();
 		move_left();
 		int l = get_distance();
-		move_center_x();
-		int c = get_distance();
 		move_right();
 		int r = get_distance();
+		move_center_x();
+		int c = get_distance();
 
 		if (l < c && r < c) {
 			drive_backward(current_speed);
-			move_center_x();
 		} else {
 			if (l < r) {
 				turn_right(current_speed);
-				move_center_x();
 			} else {
 				turn_left(current_speed);
-				move_center_x();
 			}
 			drive_forward(current_speed);
 		}
 	} else {
 		drive_forward(current_speed);
 	}
+//	delay(500);
 }
 
 int main(void) {
 	init();
 	drive_forward();
-	for (int i = 100000; i > 0; i--) {
+	while (is_running()) {
 		run();
 	}
 	exit(EXIT_SUCCESS);
