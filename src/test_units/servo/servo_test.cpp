@@ -47,42 +47,24 @@ int main(int argc, char* argv[]) {
 	cout << x << endl;
 	cout << y << endl;
 
-	system("kill $(pidof python)");
+	system("sudo kill $(pidof python)");
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_1&");
 
 	// 11-center, 14-left, 8-right
 	// 0-up, 9-center, 13-down 
 
-	if (x >= 0) {
-		for (int var = 0; var < x; ++var) {
-			softPwmWrite(SERVO_1, x);
-			delay(dly);
-		}
-		//softPwmWrite(SERVO_1, LOW);
-	} else {
-		for (int var = (x * (-1)); var > 0; --var) {
-			softPwmWrite(SERVO_1,  (x * (-1)));
-			delay(dly);
-		}
-		//softPwmWrite(SERVO_1, LOW);
+	for (int var = 0; var < x; ++var) {
+		softPwmWrite(SERVO_1, x);
+		delay(dly);
 	}
 
-	system("kill $(pidof python)");
+	system("sudo kill $(pidof python)");
 	system(
 			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_2&");
 
-	if (y >= 0) {
-		for (int var = 0; var < y; ++var) {
-			softPwmWrite(SERVO_2, y);
-			delay(dly);
-		}
-		//softPwmWrite(SERVO_2, LOW);
-	} else {
-		for (int var = (y * (-1)); var > 0; --var) {
-			softPwmWrite(SERVO_2, (y * (-1)));
-			delay(dly);
-		}
-		//softPwmWrite(SERVO_2, LOW);
+	for (int var = 0; var < y; ++var) {
+		softPwmWrite(SERVO_2, y);
+		delay(dly);
 	}
 }
