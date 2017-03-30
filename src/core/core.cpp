@@ -61,6 +61,9 @@ void run() {
 		int r = get_distance();
 
 		if (l < c && r < c) {
+			drive_backward(current_speed);
+			move_center_x();
+		} else {
 			if (l < r) {
 				turn_right(current_speed);
 				move_center_x();
@@ -68,7 +71,6 @@ void run() {
 				turn_left(current_speed);
 				move_center_x();
 			}
-		} else {
 			drive_forward(current_speed);
 		}
 	}
@@ -76,6 +78,7 @@ void run() {
 
 int main(void) {
 	init();
+	drive_forward();
 	for (int i = 100; i > 0; i--) {
 		run();
 	}
