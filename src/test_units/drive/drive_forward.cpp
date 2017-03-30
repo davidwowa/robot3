@@ -21,6 +21,10 @@ int main(void) {
 
 	init_drive();
 
+	system("sudo kill $(pidof python)");
+	system(
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py FORWARD &");
+
 	cout << "drive forward" << endl;
 	drive_forward(0);
 

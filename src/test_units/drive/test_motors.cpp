@@ -17,6 +17,10 @@ using namespace std;
 int main(void) {
 	init_drive();
 
+	system("sudo kill $(pidof python)");
+	system(
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_M_2 &");
+
 	// acceleration forward
 	cout << "acceleration forward" << endl;
 	for (int var = 0; var < 500; ++var) {

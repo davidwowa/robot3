@@ -17,6 +17,9 @@ int main(void) {
 
 	init_drive();
 
+	system("sudo kill $(pidof python)");
+		system("python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py STOP &");
+
 	drive_backward(500);
 
 	return 1;

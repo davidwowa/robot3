@@ -18,6 +18,10 @@ using namespace std;
 int main(void) {
 	init_drive();
 
+	system("sudo kill $(pidof python)");
+	system(
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_M_1 &");
+
 	cout << "drive forward" << endl;
 	drive_forward();
 	delay(1000);
