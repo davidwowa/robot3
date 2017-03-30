@@ -16,6 +16,7 @@
 #include "../drive/drive.h"
 #include "../sonar/sonar.h"
 #include "../config/config.h"
+#include "../servo/servo.h"
 
 #include "../../lib/WiringPi/wiringPi/wiringPi.h"
 #include "../../lib/WiringPi/wiringPi/softPwm.h"
@@ -34,6 +35,7 @@ int current_pointer = FORWARD;
 void init() {
 	init_drive();
 	init_sonar();
+	init_servo();
 }
 
 void run() {
@@ -42,6 +44,10 @@ void run() {
 
 	cout << "Distance on middle sensor is " << distance_m << " cm." << endl;
 	cout << "---" << endl;
+
+	system("sudo kill $(pidof python)");
+	system(
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py CORE&");
 
 }
 

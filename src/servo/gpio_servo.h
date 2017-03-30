@@ -25,6 +25,6 @@ extern const int SERVO_RIGHT = 8;
 extern const int SERVO_CENTER_X = 11;
 extern const int SERVO_UP = 0;
 extern const int SERVO_DOWN = 13;
-extern const int SERVO_CENTER_Y = 9;
+extern const int CENTER_Y = 9;
 
 #endif /* SERVO_GPIO_SERVO_H_ */

@@ -22,7 +22,7 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main() {
 	if (wiringPiSetup() == -1) {
 		fprintf(stdout, "wiringPi error: %s\n", strerror(errno));
 		return 1;
@@ -37,34 +37,53 @@ int main(int argc, char* argv[]) {
 	softPwmCreate(SERVO_1, 0, 200);
 	softPwmCreate(SERVO_2, 0, 200);
 
-	int dly = 15;
-
-	std::string a = argv[1];
-	std::string b = argv[2];
-
-	int x = std::stoi(a);
-	int y = std::stoi(b);
-	cout << x << endl;
-	cout << y << endl;
-
 	system("sudo kill $(pidof python)");
 	system(
-			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_1&");
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_SERVO&");
 
 	// 11-center, 14-left, 8-right
 	// 0-up, 9-center, 13-down 
 
-	for (int var = 0; var < x; ++var) {
-		softPwmWrite(SERVO_1, x);
-		delay(dly);
-	}
+	for (int var = 0; var < 4; ++var) {
 
-	system("sudo kill $(pidof python)");
-	system(
-			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py TEST_2&");
+		for (int var = 0; var < SERVO_LEFT; ++var) {
+			softPwmWrite(SERVO_1, SERVO_LEFT);
+			delay(SERVO_DELAY);
+		}
 
-	for (int var = 0; var < y; ++var) {
-		softPwmWrite(SERVO_2, y);
-		delay(dly);
+		for (int var = 0; var < SERVO_DOWN; ++var) {
+			softPwmWrite(SERVO_2, SERVO_DOWN);
+			delay(SERVO_DELAY);
+		}
+
+		for (int var = 0; var < SERVO_UP; ++var) {
+			softPwmWrite(SERVO_2, SERVO_UP);
+			delay(SERVO_DELAY);
+		}
+
+		for (int var = 0; var < SERVO_CENTER_X; ++var) {
+			softPwmWrite(SERVO_1, SERVO_CENTER_X);
+			delay(SERVO_DELAY);
+		}
+
+		for (int var = 0; var < SERVO_CENTER_Y; ++var) {
+			softPwmWrite(SERVO_2, SERVO_CENTER_Y);
+			delay(SERVO_DELAY);
+		}
+
+		for (int var = 0; var < SERVO_RIGHT; ++var) {
+			softPwmWrite(SERVO_1, SERVO_RIGHT);
+			delay(SERVO_DELAY);
+		}
+
+		for (int var = 0; var < SERVO_UP; ++var) {
+			softPwmWrite(SERVO_2, SERVO_UP);
+			delay(SERVO_DELAY);
+		}
+
+		for (int var = 0; var < SERVO_DOWN; ++var) {
+			softPwmWrite(SERVO_2, SERVO_DOWN);
+			delay(SERVO_DELAY);
+		}
 	}
 }
