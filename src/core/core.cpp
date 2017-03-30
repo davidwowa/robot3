@@ -52,6 +52,7 @@ void run() {
 	int current_speed = get_speed(distance_m);
 
 	if (distance_m <= MAX_WALL_DISTANCE_1) {
+		drive:stop();
 		stop();
 		move_left();
 		int l = get_distance();
