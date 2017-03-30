@@ -6,6 +6,9 @@
 // Description :
 //============================================================================
 
+#include <iostream>
+#include <stdlib.h>
+
 #include "../../drive/drive.h"
 #include "../../sonar/sonar.h"
 #include "../../servo/servo.h"
@@ -18,7 +21,8 @@ int main(void) {
 	init_drive();
 
 	system("sudo kill $(pidof python)");
-		system("python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py STOP &");
+	system(
+			"python /home/pi/Pimoroni/scrollphat/examples/scroll-text-forever.py STOP &");
 
 	drive_backward(500);
 
