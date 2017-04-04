@@ -73,7 +73,7 @@ void run() {
 	} else {
 		drive_forward(current_speed);
 	}
-	delay(500);
+	delay(50);
 }
 
 int main(void) {
